@@ -61,23 +61,23 @@ Configuration files are in `config/`. You don't need to include the prefix `conf
 │       └── y_0.pt # the pytorch tensor containing the input y of SNIPS
 ```
 
-### Sampling
+### Running SNIPS
 
-If we want to sample from NCSNv2 on LSUN bedroom, we can edit `bedroom.yml` to specify the `ckpt_id` under the group `sampling`, and then run the following
+If we want to run SNIPS on CelebA for the problem of super resolution by 2, with added noise of standard deviation 0.1, and obtain 2 variations, we can run the following
 
 ```bash
-python main.py --sample --config bedroom.yml -i bedroom
+python main.py -i celeba --config celeba.yml --doc celeba -n 2 --degradation sr2 --sigma_0 0.1
 ```
 
-Samples will be saved in `<exp>/image_samples/bedroom`.
+Samples will be saved in `<exp>/image_samples/celeba`.
 
-We can interpolate between different samples (see more details in the paper). Just set `interpolation` to `true` and an appropriate `n_interpolations` under the group of `sampling` in `bedroom.yml`. We can also perform other tasks such as inpainting. Usages should be quite obvious if you read the code and configuration files carefully.
+The available degradations are: Inpainting (`inp`), Uniform deblurring (`deblur_uni`), Gaussian deblurring (`deblur_gauss`), Super resolution by 2 (`sr2`) or by 4 (`sr4`), Compressive sensing by 4 (`cs4`), 8 (`cs8`), or 16 (`cs16`). The sigma_0 can be any value from 0 to 1.
 
 ## Pretrained Checkpoints
 
 Link: https://drive.google.com/drive/folders/1217uhIvLg9ZrYNKOR3XTRFSurt4miQrd?usp=sharing
 
-You can produce samples using it on all datasets we tested in the paper. It assumes the `--exp` argument is set to `exp`.
+These checkpoint files are provided as-is from the authors of [NCSNv2](https://github.com/ermongroup/ncsnv2). You can use the CelebA, LSUN-bedroom, and LSUN-tower datasets' pretrained checkpoints. We assume the `--exp` argument is set to `exp`.
 
 ## Acknowledgement
 
