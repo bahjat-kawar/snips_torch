@@ -1,0 +1,17 @@
+name: snips
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.7.7
+  - pytorch=1.7.0
+  - scipy
+  - torchvision
+  - hdf5
+  - tqdm
+  - h5py
+  - cudatoolkit=11.0
+  - pyyaml
+  - numpy
+  - tensorboard
+  - pandas
