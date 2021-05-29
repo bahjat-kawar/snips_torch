@@ -51,6 +51,8 @@ Configuration files are in `config/`. You don't need to include the prefix `conf
 ```bash
 <exp> # a folder named by the argument `--exp` given to main.py
 ├── datasets # all dataset files
+│   ├── celeba # all CelebA files
+│   └── lsun # all LSUN files
 ├── logs # contains checkpoints and samples produced during training
 │   └── <doc> # a folder named by the argument `--doc` specified to main.py
 │      └── checkpoint_x.pth # the checkpoint file saved at the x-th training iteration
@@ -61,12 +63,16 @@ Configuration files are in `config/`. You don't need to include the prefix `conf
 │       └── y_0.pt # the pytorch tensor containing the input y of SNIPS
 ```
 
+### Downloading data
+
+You can download the aligned and cropped CelebA files from their official source [here](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html). The LSUN files can be downloaded using [this script](https://github.com/fyu/lsun). For our purposes, only the validation sets of LSUN bedroom and tower need to be downloaded.
+
 ### Running SNIPS
 
-If we want to run SNIPS on CelebA for the problem of super resolution by 2, with added noise of standard deviation 0.1, and obtain 2 variations, we can run the following
+If we want to run SNIPS on CelebA for the problem of super resolution by 2, with added noise of standard deviation 0.1, and obtain 3 variations, we can run the following
 
 ```bash
-python main.py -i celeba --config celeba.yml --doc celeba -n 2 --degradation sr2 --sigma_0 0.1
+python main.py -i celeba --config celeba.yml --doc celeba -n 3 --degradation sr2 --sigma_0 0.1
 ```
 
 Samples will be saved in `<exp>/image_samples/celeba`.

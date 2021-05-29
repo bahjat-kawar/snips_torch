@@ -25,7 +25,7 @@ def get_dataset(args, config):
 
     if config.data.dataset == 'CELEBA':
         if config.data.random_flip:
-            dataset = CelebA(root=os.path.join(args.exp, 'datasets', 'celeba_test'), split='test',
+            dataset = CelebA(root=os.path.join(args.exp, 'datasets'), split='test',
                              transform=transforms.Compose([
                                  transforms.CenterCrop(140),
                                  transforms.Resize(config.data.image_size),
@@ -33,7 +33,7 @@ def get_dataset(args, config):
                                  transforms.ToTensor(),
                              ]), download=False)
         else:
-            dataset = CelebA(root=os.path.join(args.exp, 'datasets', 'celeba_test'), split='test',
+            dataset = CelebA(root=os.path.join(args.exp, 'datasets'), split='test',
                              transform=transforms.Compose([
                                  transforms.CenterCrop(140),
                                  transforms.Resize(config.data.image_size),
