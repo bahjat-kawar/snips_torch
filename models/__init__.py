@@ -64,8 +64,7 @@ def general_anneal_Langevin_dynamics(H, y_0, x_mod, scorenet, sigmas, n_steps_ea
 
             labels = torch.ones(x_mod.shape[0], device=x_mod.device) * (c + c_begin)
             labels = labels.long()
-            step_size = step_lr * ((sigma / sigmas[-1]) ** 2)
-            step_size_new = step_lr * ((1 / sigmas[-1]) ** 2)
+            step_size = step_lr * ((1 / sigmas[-1]) ** 2)
 
             falses = torch.zeros(V_t_x.shape[2] - singulars.shape[0], dtype=torch.bool, device=x_mod.device)
             cond_before_lite = singulars * sigma > sigma_0
@@ -74,9 +73,9 @@ def general_anneal_Langevin_dynamics(H, y_0, x_mod, scorenet, sigmas, n_steps_ea
             cond_after = torch.hstack((cond_after_lite, falses))
 
             step_vector = torch.zeros_like(V_t_x)
-            step_vector[:, :, :] = step_size_new * (sigma**2)
-            step_vector[:, :, cond_before] = step_size_new * ((sigma**2) - (sigma_0 / singulars[cond_before_lite])**2)
-            step_vector[:, :, cond_after] = step_size_new * (sigma**2) * (1 - (singulars[cond_after_lite] * sigma / sigma_0)**2)
+            step_vector[:, :, :] = step_size * (sigma**2)
+            step_vector[:, :, cond_before] = step_size * ((sigma**2) - (sigma_0 / singulars[cond_before_lite])**2)
+            step_vector[:, :, cond_after] = step_size * (sigma**2) * (1 - (singulars[cond_after_lite] * sigma / sigma_0)**2)
 
             for s in range(n_steps_each):
                 grad = torch.zeros_like(V_t_x)
