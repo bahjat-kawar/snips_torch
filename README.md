@@ -1,6 +1,6 @@
 # SNIPS: Solving Noisy Inverse Problems Stochastically
 
-This repo contains the official implementation for the paper [SNIPS: Solving Noisy Inverse Problems Stochastically](http://arxiv.org/abs/?). 
+This repo contains the official implementation for the paper [SNIPS: Solving Noisy Inverse Problems Stochastically](http://arxiv.org/abs/2105.14951). 
 
 by Bahjat Kawar, Gregory Vaksman, and Michael Elad, Computer Science Department, Technion.
 
@@ -97,7 +97,7 @@ If you find the code/idea useful for your research, please consider citing
 @article{kawar2021snips,
   title={SNIPS: Solving Noisy Inverse Problems Stochastically},
   author={Kawar, Bahjat and Vaksman, Gregory and Elad, Michael},
-  journal={arXiv preprint arXiv:?},
+  journal={arXiv preprint arXiv:2105.14951},
   year={2021}
 }
 ```
