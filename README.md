@@ -95,9 +95,11 @@ If you find the code/idea useful for your research, please consider citing
 
 ```bib
 @article{kawar2021snips,
-  title={SNIPS: Solving Noisy Inverse Problems Stochastically},
+  title={{SNIPS}: Solving noisy inverse problems stochastically},
   author={Kawar, Bahjat and Vaksman, Gregory and Elad, Michael},
-  journal={arXiv preprint arXiv:2105.14951},
+  journal={Advances in Neural Information Processing Systems},
+  volume={34},
+  pages={21757--21769},
   year={2021}
 }
 ```
